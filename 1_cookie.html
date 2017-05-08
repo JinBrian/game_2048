@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8"/>
+ </head>
+
+ <body>
+ <script type="text/javascript">
+/*写入
+	var now=new Date();
+	now.setDate(now.getDate()+7);
+	document.cookie=
+		"topScore=850;expires="+now.toGMTString();
+	
+	document.cookie=
+		"username=zhangdong;expires="+now.toGMTString();
+
+*/
+/*读取
+	var cookies=document.cookie;
+	var namei=cookies.indexOf("topScore");
+	var starti=namei+8+1;
+	var spi=cookies.indexOf(";",starti);
+	var value=
+		spi!=-1?cookies.slice(starti,spi):
+		cookies.slice(starti);
+	console.log(value);
+*/
+
+/*写入-函数
+	function setCookie(name,value,expires){
+		document.cookie=name+"="+value
+		+";expires="+expires.toGMTString();
+	}
+	var now=new Date();
+	now.setDate(now.getDate()+7);
+	setCookie("username","eric",now);
+	setCookie("topScore","1850",now);
+	
+	var now=new Date();
+	now.setDate(now.getDate()+7);
+*/
+
+/*读取-函数*/
+	function getCookie(name){
+		var cookies=document.cookie;
+		var namei=cookies.indexOf(name);
+		if(namei!=-1){
+			var starti=namei+name.length+1;
+			var spi=cookies.indexOf(";",starti);
+			var value=
+			spi!=-1?cookies.slice(starti,spi):
+			cookies.slice(starti);
+			return value;
+		}else{
+			return "";
+		}
+	}
+	console.log(getCookie("topScore"));
+	console.log(getCookie("username"));
+ </script> 
+ </body>
+</html>
